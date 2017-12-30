@@ -11308,6 +11308,24 @@ var _elm_lang$keyboard$Keyboard$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Keyboard'] = {pkg: 'elm-lang/keyboard', init: _elm_lang$keyboard$Keyboard$init, onEffects: _elm_lang$keyboard$Keyboard$onEffects, onSelfMsg: _elm_lang$keyboard$Keyboard$onSelfMsg, tag: 'sub', subMap: _elm_lang$keyboard$Keyboard$subMap};
+var _thereisno$repository$Main$stylesheet = function () {
+	var children = {ctor: '[]'};
+	var attrs = {
+		ctor: '::',
+		_0: A2(_elm_lang$html$Html_Attributes$attribute, 'rel', 'stylesheet'),
+		_1: {
+			ctor: '::',
+			_0: A2(_elm_lang$html$Html_Attributes$attribute, 'property', 'stylesheet'),
+			_1: {
+				ctor: '::',
+				_0: A2(_elm_lang$html$Html_Attributes$attribute, 'href', '//jhusain.github.io/word-bender/styles.css'),
+				_1: {ctor: '[]'}
+			}
+		}
+	};
+	var tag = 'link';
+	return A3(_elm_lang$html$Html$node, tag, attrs, children);
+}();
 var _thereisno$repository$Main$randInt = A2(_elm_lang$core$Random$int, 1, 100);
 var _thereisno$repository$Main$randomizeList = F2(
 	function (seed, list) {
@@ -13194,116 +13212,120 @@ var _thereisno$repository$Main$view = function (model) {
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: function () {
-				var _p16 = model.game;
-				if (_p16.ctor === 'Nothing') {
-					return _elm_lang$html$Html$text('');
-				} else {
-					return A2(
-						_elm_lang$html$Html$table,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$tbody,
-								{ctor: '[]'},
-								A2(
-									_elm_lang$core$List$map,
-									function (row) {
-										return A2(
-											_elm_lang$html$Html$tr,
-											{ctor: '[]'},
-											A2(
-												_elm_lang$core$List$map,
-												function (col) {
-													var className = function () {
-														var _p17 = col.squareType;
-														switch (_p17.ctor) {
-															case 'Neutral':
-																return 'neutral';
-															case 'Kill':
-																return 'kill';
-															case 'TeamASquare':
-																return 'teamA';
-															default:
-																return 'teamB';
-														}
-													}();
-													return A2(
-														_elm_lang$html$Html$td,
-														{
-															ctor: '::',
-															_0: A2(
-																_elm_lang$html$Html_Attributes$attribute,
-																'className',
-																(model.admin || col.visible) ? className : 'blank'),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html_Events$onClick(
-																	_thereisno$repository$Main$SelectSquare(col.word)),
-																_1: {
-																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$style(
-																		{ctor: '[]'}),
-																	_1: {ctor: '[]'}
-																}
-															}
-														},
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html$text(col.word),
-															_1: {ctor: '[]'}
-														});
-												},
-												row));
-									},
-									A2(_elm_community$list_extra$List_Extra$groupsOf, 5, _p16._0))),
-							_1: {ctor: '[]'}
-						});
-				}
-			}(),
+			_0: _thereisno$repository$Main$stylesheet,
 			_1: {
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$button,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(_thereisno$repository$Main$StartGame),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Start Game'),
-						_1: {ctor: '[]'}
-					}),
+				_0: function () {
+					var _p16 = model.game;
+					if (_p16.ctor === 'Nothing') {
+						return _elm_lang$html$Html$text('');
+					} else {
+						return A2(
+							_elm_lang$html$Html$table,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$style(
+									{
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+											_1: {ctor: '[]'}
+										}
+									}),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$tbody,
+									{ctor: '[]'},
+									A2(
+										_elm_lang$core$List$map,
+										function (row) {
+											return A2(
+												_elm_lang$html$Html$tr,
+												{ctor: '[]'},
+												A2(
+													_elm_lang$core$List$map,
+													function (col) {
+														var className = function () {
+															var _p17 = col.squareType;
+															switch (_p17.ctor) {
+																case 'Neutral':
+																	return 'neutral';
+																case 'Kill':
+																	return 'kill';
+																case 'TeamASquare':
+																	return 'teamA';
+																default:
+																	return 'teamB';
+															}
+														}();
+														return A2(
+															_elm_lang$html$Html$td,
+															{
+																ctor: '::',
+																_0: A2(
+																	_elm_lang$html$Html_Attributes$attribute,
+																	'className',
+																	(model.admin || col.visible) ? className : 'blank'),
+																_1: {
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Events$onClick(
+																		_thereisno$repository$Main$SelectSquare(col.word)),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$style(
+																			{ctor: '[]'}),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text(col.word),
+																_1: {ctor: '[]'}
+															});
+													},
+													row));
+										},
+										A2(_elm_community$list_extra$List_Extra$groupsOf, 5, _p16._0))),
+								_1: {ctor: '[]'}
+							});
+					}
+				}(),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_elm_lang$html$Html$button,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(_thereisno$repository$Main$ToggleAdmin),
+							_0: _elm_lang$html$Html_Events$onClick(_thereisno$repository$Main$StartGame),
 							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Reveal All'),
+							_0: _elm_lang$html$Html$text('Start Game'),
 							_1: {ctor: '[]'}
 						}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_thereisno$repository$Main$ToggleAdmin),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Reveal All'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		});

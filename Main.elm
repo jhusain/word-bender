@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, img, input, select, option, button, table, tr, td, tbody)
+import Html exposing (Html, text, div, img, input, select, option, button, table, tr, td, tbody, node)
 import Html.Attributes exposing (style, src, value, href, attribute)
 import Html.Events exposing (onClick, onInput)
 import List exposing (map, sortBy, foldl, take, drop, indexedMap)
@@ -199,11 +199,29 @@ update msg model =
 -- VIEW
 
 
+stylesheet =
+    let
+        tag =
+            "link"
+
+        attrs =
+            [ attribute "rel" "stylesheet"
+            , attribute "property" "stylesheet"
+            , attribute "href" "//jhusain.github.io/word-bender/styles.css"
+            ]
+
+        children =
+            []
+    in
+        node tag attrs children
+
+
 view : Model -> Html Msg
 view model =
     div
         []
-        [ case model.game of
+        [ stylesheet
+        , case model.game of
             Nothing ->
                 text ""
 
