@@ -1,0 +1,20 @@
+.neutral {
+  background-color: #CCCCCC
+}
+
+.teamA {
+  background-color: blue
+}
+
+.teamB {
+  background-color: #f4a142
+}
+
+.kill {
+  background-color: black;
+  color: white
+}
+
+.blank {
+  background-color: white
+}
