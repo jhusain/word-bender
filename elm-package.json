@@ -1,0 +1,12 @@
+{
+  "title": "Word Bender",
+  "description": "",
+  "dependencies": {
+    "elm-community/list-extra": "1.0.0 <= v < 8.0.0",
+    "elm-lang/core": "5.0.0 <= v < 6.0.0",
+    "elm-lang/html": "2.0.0 <= v < 3.0.0",
+    "elm-lang/http": "1.0.0 <= v < 6.0.0",
+    "elm-lang/keyboard": "1.0.0 <= v < 3.0.0",
+    "rtfeldman/elm-css": "1.0.0 <= v < 12.0.0"
+  }
+}
