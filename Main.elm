@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, text, div, img, input, select, option, button, table, tr, td, tbody)
-import Html.Attributes exposing (style, src, value, href)
+import Html.Attributes exposing (style, src, value, href, attribute)
 import Html.Events exposing (onClick, onInput)
 import List exposing (map, sortBy, foldl, take, drop, indexedMap)
 import Keyboard
@@ -203,12 +203,7 @@ view : Model -> Html Msg
 view model =
     div
         []
-        [ button [ onClick StartGame ]
-            [ text "Start Game" ]
-        , button
-            [ onClick ToggleAdmin ]
-            [ text "Reveal All" ]
-        , case model.game of
+        [ case model.game of
             Nothing ->
                 text ""
 
@@ -223,31 +218,30 @@ view model =
                                     (map
                                         (\col ->
                                             let
-                                                color =
+                                                className =
                                                     case col.squareType of
                                                         Neutral ->
-                                                            "yellow"
+                                                            "neutral"
 
                                                         Kill ->
-                                                            "#CCCCCC"
+                                                            "kill"
 
                                                         TeamASquare ->
-                                                            "cyan"
+                                                            "teamA"
 
                                                         TeamBSquare ->
-                                                            "red"
+                                                            "teamB"
                                             in
                                                 td
-                                                    [ onClick (SelectSquare col.word)
+                                                    [ attribute "className"
+                                                        (if (model.admin || col.visible) then
+                                                            className
+                                                         else
+                                                            "blank"
+                                                        )
+                                                    , onClick (SelectSquare col.word)
                                                     , style
-                                                        [ ( "font-size", "150%" )
-                                                        , ( "background-color"
-                                                          , if (model.admin || col.visible) then
-                                                                color
-                                                            else
-                                                                "white"
-                                                          )
-                                                        ]
+                                                        []
                                                     ]
                                                     [ text col.word ]
                                         )
@@ -257,6 +251,11 @@ view model =
                             (groupsOf 5 game)
                         )
                     ]
+        , button [ onClick StartGame ]
+            [ text "Start Game" ]
+        , button
+            [ onClick ToggleAdmin ]
+            [ text "Reveal All" ]
         ]
 
 

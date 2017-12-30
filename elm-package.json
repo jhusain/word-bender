@@ -1,6 +1,12 @@
 {
-  "title": "Word Bender",
-  "description": "",
+  "version": "1.0.0",
+  "summary": "Snippet created with runelm.io",
+  "license": "BSD3",
+  "repository": "https://github.com/thereisno/repository.git",
+  "source-directories": [
+    "."
+  ],
+  "exposed-modules": [],
   "dependencies": {
     "elm-community/list-extra": "1.0.0 <= v < 8.0.0",
     "elm-lang/core": "5.0.0 <= v < 6.0.0",
@@ -8,5 +14,6 @@
     "elm-lang/http": "1.0.0 <= v < 6.0.0",
     "elm-lang/keyboard": "1.0.0 <= v < 3.0.0",
     "rtfeldman/elm-css": "1.0.0 <= v < 12.0.0"
-  }
+  },
+  "elm-version": "0.18.0 <= v < 0.19.0"
 }
